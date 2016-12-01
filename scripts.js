@@ -1,21 +1,21 @@
 $(document).ready(function(){
-  for(i = 0; i < 256; i++){
-  $('#pad').append('<div id="drawWrap"><div id="draw"></div></div>')
+  formGrid(prompt("How many squares would you like your pad's width and height to be?", 16));
+
+
+  $('.draw').on('click', function(){
+    $(this).removeClass().addClass('clicked');
+  });
+
+function formGrid(squared) {
+  var totalsq = squared * squared;
+  var pixelSize = (720 / squared / 720 * 100);
+  for(i = 1; i <= totalsq; i++){
+    $('.pad').append('<div class="draw"></div>')
+  };
+  $('.draw').css({'height': pixelSize + '%', 'width': pixelSize + '%'});
+
 }
-});
-$(document).ready(function(){
-  $('#draw').click(function(){
-    $(this).fadeTo('fast', 0);
-    console.log('1');
-  });
-});
 
 
 
-$(document).ready(function(){
-  $('#sub').click(function(){
-    var pixels = $('#pix').attr();
-    $('#pad').append();
-    console.log(pixels);
-  });
 });
